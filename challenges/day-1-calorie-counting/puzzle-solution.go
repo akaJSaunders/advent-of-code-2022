@@ -15,11 +15,9 @@ func main() {
     }
 
     fileScanner := bufio.NewScanner(readFile)
-
     fileScanner.Split(bufio.ScanLines)
 
     elf_calories := make([]int, 0)
-
     var elf_calorie_count = 0
 
     for fileScanner.Scan() {
@@ -40,10 +38,12 @@ func main() {
     }
 
     readFile.Close()
-
     
     sort.Sort(sort.Reverse(sort.IntSlice(elf_calories)))
 
+    // Part 1
     fmt.Println("Most calories being carried: ", elf_calories[0])
+
+    // Part 2
     fmt.Println("Total calories carried by the top 3:", elf_calories[0] + elf_calories[1] + elf_calories[2])
 }
